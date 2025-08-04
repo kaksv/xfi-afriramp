@@ -52,7 +52,7 @@ export default function Welcome() {
             transition={{ duration: 0.5 }}
           >
              <h1 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="gradient-text">On & Offramp</span> USDC on Base tokens.  <br />
+              <span className="gradient-text">On & Offramp</span> XFi tokens.  <br />
                <span className="gradient-text"> Made Simple in East Africa.</span>
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-4">
@@ -74,7 +74,7 @@ export default function Welcome() {
             </div>
             
             <div className="mt-8 text-slate-500 dark:text-slate-400">
-              <p>Available on MetaMask,Coinbase Wallet and more and more.</p>
+              <p>Available on MetaMask Wallet and more.</p>
             </div>
           </motion.div>
           
@@ -134,7 +134,7 @@ export default function Welcome() {
               On and Off Chain Transactions <span className="gradient-text">Made easy.</span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-              We've simplified the process of buying, selling, and transferring Stablecoins  for East Africans.
+              We've simplified the process of buying, selling, and transferring XFi tokens  for East Africans.
               No more complications. It just works.
             </p>
           </motion.div>
