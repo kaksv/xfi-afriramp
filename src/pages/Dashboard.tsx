@@ -24,10 +24,11 @@ export default function Dashboard() {
     const fetchEthPrice = async () => {
       try {
         setIsPriceLoading(true);
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=crossfi&vs_currencies=usd');
+        // const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true');
         const data = await response.json();
         
-        setEthPrice(data.ethereum.usd);
+        setEthPrice(data.crossfi.usd);
         setEthPriceChange(data.ethereum.usd_24h_change);
       } catch (error) {
         console.error('Error fetching ETH price:', error);
@@ -104,7 +105,7 @@ export default function Dashboard() {
       isLoading: false
     },
     { 
-      name: 'ETH Price', 
+      name: 'XFi Price', 
       value: isPriceLoading ? '...' : `$${ethPrice.toLocaleString(undefined, { maximumFractionDigits: 2 })}`,
       change: isPriceLoading ? '...' : `${ethPriceChange > 0 ? '+' : ''}${ethPriceChange.toFixed(2)}%`,
       icon: <PieChart size={18} />, 

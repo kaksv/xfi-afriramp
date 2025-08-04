@@ -115,8 +115,8 @@ export default function BalanceCard() {
                     <span className="text-lg">Ξ</span>
                   </div>
                   <div>
-                    <p className="font-medium">Ethereum</p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">ETH</p>
+                    <p className="font-medium">Crossfi</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">XFi</p>
                   </div>
                 </div>
                 <p className="text-xl font-bold">{formatBalance(ethBalance?.value)}</p>
@@ -132,8 +132,8 @@ export default function BalanceCard() {
                       <span className="text-lg">$</span>
                     </div>
                     <div>
-                      <p className="font-medium">USD Coin</p>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">USDC</p>
+                      <p className="font-medium"></p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">MPX</p>
                     </div>
                   </div>
                   <p className="text-xl font-bold">{formatBalance(usdcBalance?.value, 6)}</p>
@@ -151,7 +151,7 @@ export default function BalanceCard() {
                     </div>
                     <div>
                       <p className="font-medium">Tether</p>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">USDT</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">MPX</p>
                     </div>
                   </div>
                   <p className="text-xl font-bold">{formatBalance(usdtBalance?.value, 6)}</p>
