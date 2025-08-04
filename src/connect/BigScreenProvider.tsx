@@ -2,15 +2,30 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createWeb3Modal } from '@web3modal/wagmi/react';
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import { mainnet, sepolia, base, baseSepolia, celo, celoAlfajores } from 'wagmi/chains';
+import { type Chain } from 'viem';
 // Create the query client
 const queryClient = new QueryClient();
+
+
+export const CrossFiMainnet = {
+  id: 4158,
+  name: 'CrossFi Mainnet',
+  nativeCurrency: { name: 'CrossFi', symbol: 'XFi', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.mainnet.ms'] },
+  },
+  blockExplorers: {
+    default: { name: 'XFiScan', url: 'https://xfiscan.com/' },
+  },
+} as const satisfies Chain;
+
 
 // Create the Wagmi config
 const config = createConfig({
   chains: [
     // mainnet, 
     // sepolia, 
-    base, 
+    CrossFiMainnet, 
     // baseSepolia, 
     // celo, 
     // celoAlfajores, 
@@ -19,7 +34,7 @@ const config = createConfig({
   transports: {
     // [mainnet.id]: http(),
     // [sepolia.id]: http(),
-    [base.id]: http(),
+    [CrossFiMainnet.id]: http(),
     // [baseSepolia.id]: http(),
     // [celo.id]: http(),
     // [celoAlfajores.id]: http(),

@@ -3,6 +3,20 @@ import { useSwitchChain, useConfig, useAccount, useChainId } from 'wagmi';
 import { mainnet, sepolia, base, baseSepolia, celo, celoAlfajores } from 'wagmi/chains';
 // import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { type Chain } from 'viem';
+
+
+export const CrossFiMainnet = {
+  id: 4158,
+  name: 'CrossFi Mainnet',
+  nativeCurrency: { name: 'CrossFi', symbol: 'XFi', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.mainnet.ms'] },
+  },
+  blockExplorers: {
+    default: { name: 'XFiScan', url: 'https://xfiscan.com/' },
+  },
+} as const satisfies Chain;
 
 export default function NetworkSelector() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +32,9 @@ export default function NetworkSelector() {
     switch (chain.id) {
       case mainnet.id:
         return { id: chain.id, name: 'Ethereum Mainnet', icon: '🔲' };
-      case sepolia.id:
+      case 4158:
+        return { id: chain.id, name: 'CrossFi Mainnet', icon: '🔲' };  
+      case sepolia.id:  
         return { id: chain.id, name: 'Sepolia Testnet', icon: '🟣' };
       case base.id:
         return { id: chain.id, name: 'Base', icon: '🔵' };
@@ -35,10 +51,15 @@ export default function NetworkSelector() {
     }
   });
   
-  const currentChain = chains.find(chain => chain.id === chainId) || chains[0];
+  const currentChain = chains.find(chain => chain.id === 4158) || chains[0];
   
   const handleSwitchChain = (chainId: number) => {
     switchChain({ chainId });
+    setIsOpen(false);
+  };
+
+  const handleSwitchCrossFi = () => {
+    switchChain({ chainId: 4158 });
     setIsOpen(false);
   };
   
@@ -76,7 +97,7 @@ export default function NetworkSelector() {
                 {chains.map(chain => (
                   <button
                     key={chain.id}
-                    onClick={() => handleSwitchChain(chain.id)}
+                    onClick={() => handleSwitchCrossFi()}
                     className="w-full text-left px-4 py-2 flex items-center space-x-2 hover:bg-slate-100 dark:hover:bg-dark-600 transition-colors"
                   >
                     <span className="text-lg">{chain.icon}</span>

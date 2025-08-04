@@ -4,15 +4,28 @@ import { WagmiProvider, createConfig, http } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
 import { mainnet, base } from "wagmi/chains";
+import { type Chain } from 'viem';
 // import MyCustomAvatar from '../connect/MyCustomAvatar';
+
+export const CrossFiMainnet = {
+  id: 4158,
+  name: 'CrossFi Mainnet',
+  nativeCurrency: { name: 'CrossFi', symbol: 'XFi', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.mainnet.ms'] },
+  },
+  blockExplorers: {
+    default: { name: 'XFiScan', url: 'https://xfiscan.com/' },
+  },
+} as const satisfies Chain;
 
 const config = createConfig(
   getDefaultConfig({
     
-    chains: [base, ],
+    chains: [CrossFiMainnet, ],
     transports: {
-      [base.id]: http(),
-      [mainnet.id]: http(),
+      [CrossFiMainnet.id]: http(),
+      // [mainnet.id]: http(),
       
     },
 
